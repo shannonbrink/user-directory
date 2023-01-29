@@ -1,11 +1,11 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import UsersExport from '../components/users/UsersCard.vue'
+import UsersExport from '../components/users/UsersExport.vue'
 import UsersCard from '../components/users/UsersCard.vue'
 import UsersPagination from '../components/users/UsersCard.vue'
 import axios from 'axios'
 
-let users = ref({})
+let users = ref([])
 let pageNumber = ref(1)
 
 function getNextPage() {
@@ -28,9 +28,9 @@ async function getUsers() {
   await axios
     .get(`https://randomuser.me/api/?page=${pageNumber.value}&results=10&seed=shannonbrink`)
     .then(response => {
-      users = response.data.results
+      users.value = response.data.results
 
-      console.log(users)
+      console.log(users.value)
     })
 }
 
@@ -41,7 +41,7 @@ onMounted(() => {
 
 <template>
   <main>
-    <UsersExport/>
+    <UsersExport :pageNumber="pageNumber" />
 
     <UsersCard :users="users"/>
 
