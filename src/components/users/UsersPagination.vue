@@ -2,8 +2,8 @@
 const props = defineProps({
   pageNumber: Number
 })
-
 const emit = defineEmits(['change', 'delete'])
+const firstPage = 1
 </script>
 
 <template>
@@ -15,8 +15,8 @@ const emit = defineEmits(['change', 'delete'])
     >
 			<button
         class="button is-light is-size-6"
+        :disabled="pageNumber === firstPage"
         @click="$emit('previousPage')"
-        :disabled="pageNumber === 1"
       >
 				Previous
 			</button>

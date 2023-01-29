@@ -1,11 +1,7 @@
-<script>
-export default {
-  data() {
-    return {
-      isBurgerOpen: false,
-    }
-  },
-}
+<script setup>
+import { ref } from 'vue';
+
+let isBurgerOpen = ref(false)
 </script>
 
 <template>

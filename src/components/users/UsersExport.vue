@@ -11,6 +11,9 @@ async function exportToCSV() {
     .then((response) => {
       allowDownload(response.data)
     })
+    .catch((error) => {
+      console.log(error)
+    })
 }
 
 function allowDownload(data) {
@@ -35,7 +38,7 @@ function allowDownload(data) {
 </script>
 
 <template>
-  <div class="columns">
+  <div class="">
     <button class="button is-light is-size-6" @click="exportToCSV">
       Export to CSV
     </button>

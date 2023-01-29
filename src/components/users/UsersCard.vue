@@ -16,15 +16,13 @@ const props = defineProps({
           <img :src="user.picture.large" :alt="`image of ${user.name.first} ${user.name.last}`" />
         </div>
 
-        <article class="column">
-          <p class="capitalize">
-            <strong>{{ user.name.first }} {{ user.name.last }}</strong>
-          </p>
+        <div class="column">
+          <p class="capitalize">{{ user.name.first }} {{ user.name.last }}</p>
           <p class="capitalize">Age: {{ user.dob.age }}</p>
           <p class="capitalize">Gender: {{ user.gender }}</p>
           <p>Email: {{ user.email }}</p>
           <p>Phone: {{ user.phone }}</p>
-        </article>
+        </div>
       </div>
     </div>
   </div>
