@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue';
 import UsersExport from '../components/users/UsersExport.vue'
 import UsersCard from '../components/users/UsersCard.vue'
-import UsersPagination from '../components/users/UsersCard.vue'
+import UsersPagination from '../components/users/UsersPagination.vue'
 import axios from 'axios'
 
 let users = ref([])
@@ -41,10 +41,14 @@ onMounted(() => {
 
 <template>
   <main>
-    <UsersExport :pageNumber="pageNumber" />
+    <UsersExport :page-number="pageNumber" />
 
     <UsersCard :users="users"/>
 
-    <UsersPagination />
+    <UsersPagination
+      :page-number="pageNumber"
+      @next-page="getNextPage"
+      @previous-page="getPreviousPage"
+    />
   </main>
 </template>
