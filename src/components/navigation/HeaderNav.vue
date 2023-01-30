@@ -34,10 +34,18 @@ let isBurgerOpen = ref(false)
       :class="{ 'is-active': isBurgerOpen }"
     >
       <nav class="navbar-end">
-        <RouterLink class="navbar-item" to="/">
+        <RouterLink
+          class="navbar-item"
+          to="/"
+          @click="isBurgerOpen = !isBurgerOpen"
+        >
           Home
         </RouterLink>
-        <RouterLink class="navbar-item" to="/users">
+        <RouterLink
+          class="navbar-item"
+          to="/users"
+          @click="isBurgerOpen = !isBurgerOpen"
+        >
           Users
         </RouterLink>
       </nav>
