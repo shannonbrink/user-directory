@@ -4,7 +4,6 @@ const props = defineProps({
 })
 const emit = defineEmits(['change', 'delete'])
 const firstPage = 1
-
 </script>
 
 <template>

@@ -8,7 +8,7 @@ import FooterNav from './components/navigation/FooterNav.vue'
   <div id="app">
     <HeaderNav />
 
-    <RouterView class="hero is-halfheight py-6"/>
+    <RouterView class="hero is-halfheight py-6" />
 
     <FooterNav />
   </div>

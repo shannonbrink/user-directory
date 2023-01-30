@@ -47,7 +47,9 @@ onMounted(() => {
 <template>
   <main>
     <div class="title-bar is-flex is-justify-content-space-between">
-      <h1 class="title is-align-self-center m-0">All Users:</h1>
+      <h1 class="title is-align-self-center m-0">
+        All Users:
+      </h1>
       <UsersExport :page-number="pageNumber" />
     </div>
 

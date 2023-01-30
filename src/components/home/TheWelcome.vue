@@ -1,7 +1,7 @@
 <template>
   <div class="is-flex is-flex-direction-column is-align-items-center px-6">
     <h1 class="title">
-      Welcome to the <span class="blue">User Directory</span>!
+      Welcome to the <span class="highlight">User Directory</span>!
     </h1>
 
     <p class="container pb-4">
@@ -13,12 +13,14 @@
       Donec viverra posuere ipsum, vitae congue nulla aliquet sed.
     </p>
 
-    <RouterLink class="btn" to="/users">Browse Users</RouterLink>
+    <RouterLink class="btn" to="/users">
+      Browse Users
+    </RouterLink>
   </div>
 </template>
 
 <style scoped lang="scss">
-.blue {
+.highlight {
   color: $matisse;
 }
 </style>
