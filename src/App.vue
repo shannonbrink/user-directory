@@ -5,10 +5,10 @@ import FooterNav from './components/navigation/FooterNav.vue'
 </script>
 
 <template>
-  <div id="app" class="hero is-fullheight">
+  <div id="app">
     <HeaderNav />
 
-    <RouterView />
+    <RouterView class="hero is-halfheight py-6"/>
 
     <FooterNav />
   </div>
@@ -17,5 +17,31 @@ import FooterNav from './components/navigation/FooterNav.vue'
 <style lang="scss">
 #app {
   font-family: 'Helvetica', sans-serif;
+  background-color: $alabaster;
+  color: $outer-space;
+}
+
+.btn {
+  background-color: $matisse;
+  color: $alabaster;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $picton-blue;
+    color: $alabaster;
+  }
+
+  &:disabled {
+    background-color: $geyser;
+    color: $gull-gray;
+    cursor: default;
+  }
 }
 </style>

@@ -8,20 +8,24 @@ import UsersPagination from '../components/users/UsersPagination.vue'
 let users = ref([])
 let pageNumber = ref(1)
 
-function getNextPage() {
+async function getNextPage() {
   pageNumber.value += 1
 
   if (pageNumber.value === 0) pageNumber.value = 1
   
-  getUsers()
+  await getUsers()
+
+  window.scrollTo(0, 0)
 }
 
-function getPreviousPage() {
+async function getPreviousPage() {
   pageNumber.value -= 1
 
   if (pageNumber.value === 0) pageNumber.value = 1
   
-  getUsers()
+  await getUsers()
+
+  window.scrollTo(0, 0)
 }
 
 async function getUsers() {
@@ -42,7 +46,10 @@ onMounted(() => {
 
 <template>
   <main>
-    <UsersExport :page-number="pageNumber" />
+    <div class="title-bar is-flex is-justify-content-space-between">
+      <h1 class="title is-align-self-center m-0">All Users:</h1>
+      <UsersExport :page-number="pageNumber" />
+    </div>
 
     <UsersCard :users="users" />
 
@@ -53,3 +60,19 @@ onMounted(() => {
     />
   </main>
 </template>
+
+<style scoped lang="scss">
+.title-bar {
+  margin: 0 2rem 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .title-bar  {
+    margin: 0 1rem 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+}
+</style>

@@ -38,13 +38,7 @@ function allowDownload(data) {
 </script>
 
 <template>
-  <div class="">
-    <button class="button is-light is-size-6" @click="exportToCSV">
-      Export to CSV
-    </button>
-  </div>
+  <button class="btn" @click="exportToCSV">
+    Export Page
+  </button>
 </template>
-
-<style scoped lang="scss">
-
-</style>

@@ -4,30 +4,33 @@ const props = defineProps({
 })
 const emit = defineEmits(['change', 'delete'])
 const firstPage = 1
+
 </script>
 
 <template>
-	<div class="columns is-centered has-text-centered">
+	<div class="is-flex is-justify-content-center">
 		<nav
-      class="is-centered"
-      role="navigation"
-      aria-label="pagination"
-    >
+			class="pagination"
+			role="navigation"
+			aria-label="pagination"
+		>
 			<button
-        class="button is-light is-size-6"
-        :disabled="pageNumber === firstPage"
-        @click="$emit('previousPage')"
-      >
-				Previous
+				class="btn mr-2"
+				:disabled="pageNumber === firstPage"
+				@click="$emit('previousPage')"
+			>
+				Prev.
 			</button>
 
-			<button class="button is-light is-size-6" @click="$emit('nextPage')">
-				Next page
+			<button class="btn" @click="$emit('nextPage')">
+				Next
 			</button>
 		</nav>
 	</div>
 </template>
 
 <style scoped lang="scss">
-
+.btn {
+	padding: .5rem;
+}
 </style>

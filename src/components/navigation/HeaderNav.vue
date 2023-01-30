@@ -5,10 +5,12 @@ let isBurgerOpen = ref(false)
 </script>
 
 <template>
-  <header class="navbar p-2">
-    <div class="navbar-brand">
+  <header class="header navbar is-transparent">
+    <div class="navbar-brand" :class="{ 'navbar-bottom-border': isBurgerOpen }">
       <RouterLink to="/">
-        <img class="navbar-item" src="@/assets/logo.svg" alt="user directory logo" />
+        <figure class="image is-96x96">
+          <img class="logo" src="@/assets/logo.svg" alt="user directory logo" />
+        </figure>
       </RouterLink>
 
       <a
@@ -17,16 +19,13 @@ let isBurgerOpen = ref(false)
         aria-label="menu"
         aria-expanded="false"
         data-target="headerNavbar"
+        :class="{ 'is-active': isBurgerOpen }"
         @click="isBurgerOpen = !isBurgerOpen"
       >
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
-    </div>
-    
-    <div class="navbar-start is-hidden-touch">
-      <p class="navbar-item">User Directory</p>
     </div>
 
     <div
@@ -47,5 +46,56 @@ let isBurgerOpen = ref(false)
 </template>
 
 <style scoped lang="scss">
+.navbar {
+  padding: 3rem 4rem;
+  background-color: $outer-space;
+}
 
+.navbar-burger {
+  height: unset;
+  color: $alabaster;
+
+  &:hover {
+    background-color: transparent;
+  }
+
+  span {
+    width: 1.5rem;
+  }
+}
+
+.navbar-item {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: $alabaster;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $picton-blue;
+    background-color: transparent;
+  }
+}
+
+.navbar-menu {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+@media screen and (max-width: 1023px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .navbar-bottom-border {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $alabaster;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-item {
+    font-size: 1rem;
+  }
+}
 </style>
